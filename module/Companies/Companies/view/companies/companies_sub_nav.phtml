@@ -1,0 +1,22 @@
+<?php if ( isset($company) && !empty($company->id) ): ?>
+
+    <div class="header"><?php echo $this->translate("Actions") ?></div>
+    
+    <a href="<?php echo $this->url('companies_segment',
+            array('action' => 'view', 'id' => $company->id));
+    ?>"><?php echo $this->translate("Company Info"); ?></a>
+    
+    <a href="<?php echo $this->url('add_employee',
+            array('company_id' => $company->id));
+    ?>"><?php echo $this->translate("Add New Employee"); ?></a>
+    
+<?php endif; ?>
+
+<div class="header">Companies</div>
+
+<a href="<?php echo $this->url('companies_segment', array('action' => 'list'));
+    ?>"><?php echo $this->translate("View All"); ?></a>
+
+<a href="<?php echo $this->url('companies_segment', array('action' => 'add'));
+        ?>"><?php echo $this->translate("Add New Company"); ?></a>
+

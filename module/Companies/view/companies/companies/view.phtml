@@ -1,0 +1,33 @@
+<header>
+    <div class="header"><?php echo $this->translate('Company Info')?></div>
+</header>
+
+<div class="companyDetails">
+    <div class="row">
+        <div class="field"><?php echo $this->translate('Name'); ?>:</div>
+        <div class="val"><?php echo $company->name ?></div>
+    </div>
+    
+    <div class="row">
+        <div class="field"><?php echo $this->translate('Address') ?>:</div>
+        <div class="val"><?php echo $company->addr ?></div>
+    </div>
+    
+    <div class="row">
+        <div class="field"><?php echo $this->translate('Telephone') ?>:</div>
+        <div class="val"><?php echo $company->tel ?></div>
+    </div>
+    
+    <div class="row">
+        <div class="field"><?php echo $this->translate('Size') ?>:</div>
+        <div class="val"><?php echo $company->getEmployeeCount(); ?></div>
+    </div>
+</div>
+
+<h2><?php echo $this->translate('Employee List') ?></h2>
+
+<p><em><?php echo sprintf($this->translate('Listing %s employees.'), $employees->count()); ?></em></p>
+
+<?php foreach ( $employees as $emp ): ?>
+    <?php echo $this->partial('employee_partial', array('employee' => $emp)); ?>
+<?php endforeach; ?>

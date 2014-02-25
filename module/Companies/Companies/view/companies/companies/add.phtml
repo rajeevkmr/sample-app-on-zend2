@@ -1,0 +1,17 @@
+<header>
+    <div class="header">Add New Company</div>
+</header>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div class="form">
+    <fieldset>
+        <div><?php echo $this->formRow($form->get('name')); ?></div>
+        <div><?php echo $this->formRow($form->get('addr')); ?></div>
+        <div><?php echo $this->formRow($form->get('tel')); ?></div>
+        <div><?php echo $this->formSubmit($form->get('submit')); ?></div>
+    </fieldset>
+</div>
+
+<?php echo $this->form()->closeTag(); ?>
+

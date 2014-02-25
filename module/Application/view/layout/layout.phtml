@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle($this->translate('Company app')) ?>
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.14.1/build/cssreset/cssreset-min.css">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.14.1/build/cssbase/cssbase-min.css">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.14.1/build/cssgrids/cssgrids-min.css">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.14.1/build/cssgrids-responsive/cssgrids-responsive-min.css">
+        <?php echo $this->headLink()->appendStylesheet('/css/style.css')  ?>
+        <?php echo $this->headScript()->setFile('/js/jquery-1.11.0.min.js','text/javascript'); ?>
+        <?php echo $this->headScript()->setFile('/js/companies.js','text/javascript'); ?>
+        <?php echo $this->headScript()->setFile('/js/myValidator.js','text/javascript'); ?>
+    </head>
+    <body>
+        <article>
+            <div class="main-wrapper">
+                <header>
+                    <div class="main-header">
+                        Arnoldas's Company App on Zend Framework 2
+                    </div>
+                </header>
+                <nav>
+                    <div class="nav">
+                        <a href="<?php echo $this->url('companies_segment', 
+                                array('action' => 'list')); ?>"><?php
+                                echo $this->translate("Companies"); ?></a>
+                        <a href="<?php echo $this->url('companies_segment', 
+                                array('action' => 'info')); ?>"><?php
+                                echo $this->translate("Information"); ?></a>
+                    </div>
+                </nav>
+                
+                <article>
+                    <div class="fash_message">
+                        <?php echo $this->flashMessenger()->render(); ?>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="yui3-g" id="content_wrapper">
+                        <div class="yui3-u" id="content">
+                            <div style="padding-right:20px">
+                                <?php echo $this->content; ?>
+                            </div>
+                        </div>
+                        <div class="yui3-u" id="subnav">
+                            <nav><?php echo $this->subnav; ?></nav>
+                        </div>
+                    </div>
+                </article>
+
+                <footer>
+                    <div class="footer">
+                        <?php echo $this->translate('Made by Arnoldas'); ?>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    </body>
+</html>

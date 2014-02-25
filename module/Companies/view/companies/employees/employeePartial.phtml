@@ -1,0 +1,19 @@
+<div class="employeePartial" rel="<?php echo $employee->id ?>">
+    <a href="javascript:;" class="deleteEmployee" rel="<?php echo $employee->id ?>">
+        <?php echo $this->translate('Delete Employee'); ?>
+    </a>
+    <div class="row">
+        <div class="field"><?php echo $this->translate('Name, Lastname'); ?>:</div>
+        <div class="val"><?php echo $employee->name ?> <?php echo $employee->lastname ?></div>
+    </div>
+    
+    <div class="row">
+        <div class="field"><?php echo $this->translate('E-mail'); ?>:</div>
+        <div class="val"><?php echo $employee->name ?> <?php echo $employee->email ?></div>
+    </div>
+    
+    <div class="row last">
+        <div class="field"><?php echo $this->translate('Started working'); ?>:</div>
+        <div class="val"><?php echo $employee->startdate ?></div>
+    </div>
+</div>

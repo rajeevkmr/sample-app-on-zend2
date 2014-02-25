@@ -1,0 +1,23 @@
+<header>
+    <div class="header">Listing Companies</div>
+</header>
+<p>
+    <em>
+        <?php
+        echo sprintf($this->translate('Listing %s out of %s max.'), $companies->count(), $limit);
+        ?>
+    </em>
+</p>
+
+<ul class="companyList">
+<?php foreach ( $companies as $company ): ?>
+    <li>
+        <?php echo $company->name ?>
+        <a href="<?php echo $this->url('companies_segment',
+                array('action' => 'view', 'id' => $company->id));
+        ?>"><?php
+                echo $this->translate("View");
+        ?></a>
+    </li>
+<?php endforeach; ?>
+</ul>

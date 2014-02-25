@@ -1,0 +1,49 @@
+<header>
+    <div class="header"><?php echo $this->translate('Add New Employee'); ?></div>
+</header>
+
+<p>Company: <b><?php echo $company->name; ?></b></p>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div class="form">
+    <fieldset>
+        <div>
+            <?php echo $this->formLabel($form->get('name')); ?>
+            <?php echo $this->formInput($form->get('name')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('name')); ?></div>
+        </div>
+        <div>
+            <?php echo $this->formLabel($form->get('lastname')); ?>
+            <?php echo $this->formInput($form->get('lastname')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('lastname')); ?></div>
+        </div>
+        <div>
+            <?php echo $this->formLabel($form->get('email')); ?>
+            <?php echo $this->formInput($form->get('email')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('email')); ?></div>
+        </div>
+        <div>
+            <?php echo $this->formLabel($form->get('startdate')); ?>
+            <?php echo $this->formInput($form->get('startdate')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('startdate')); ?></div>
+        </div>
+        <div><?php echo $this->formSubmit($form->get('submit')); ?></div>
+        <input type="hidden" name="cid" value="<?php echo $company->id; ?>"/>
+    </fieldset>
+</div>
+
+<?php echo $this->form()->closeTag(); ?>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    // Validations
+    var url = '<?php echo $this->url('employee_segment',
+            array('action' => 'validateJSON'));
+    ?>';
+    $(['name', 'lastname', 'email', 'startdate']).each(function(index, field){
+      var validator = new myValidator({'url':url,'form': $('#employee')});
+      validator.setInput(field).setValidation();
+    });
+});
+</script>

@@ -1,0 +1,40 @@
+<header>
+    <div class="header">Add New Company</div>
+</header>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div class="form">
+    <fieldset>
+        <div>
+            <?php echo $this->formLabel($form->get('name')); ?>
+            <?php echo $this->formInput($form->get('name')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('name')); ?></div>
+        </div>
+        <div>
+            <?php echo $this->formLabel($form->get('addr')); ?>
+            <?php echo $this->formInput($form->get('addr')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('addr')); ?></div>
+        </div>
+        <div>
+            <?php echo $this->formLabel($form->get('tel')); ?>
+            <?php echo $this->formInput($form->get('tel')); ?>
+            <div class="errors"><?php echo $this->formElementErrors($form->get('tel')); ?></div>
+        </div>
+        <div><?php echo $this->formSubmit($form->get('submit')); ?></div>
+    </fieldset>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    // Validations
+    var url = '/companies/validateJSON';
+    $(['name', 'addr', 'tel']).each(function(index, field){
+      var validator = new myValidator({'url':url,'form': $('#company')});
+      validator.setInput(field).setValidation();
+    });
+});
+</script>
+
+<?php echo $this->form()->closeTag(); ?>
+
